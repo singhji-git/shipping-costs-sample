@@ -28,15 +28,15 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "shipping.cost":
+    if req.get("result").get("action") != "current.plan":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    zone = parameters.get("shipping-zone")
+    number = parameters.get("Phonenumber")
+    comp= parameters.get("Company")
+    plan = {'9155465072':"Free Roaming", '9572390164':"Free Calling", '919973212':"Free 1GB Data", '9973617212':"30p/min", '91998870950':"Free Videocalling"}
 
-    balance = {'9155465072':100, '9572390164':200, '919973212':300, '9973617212':400, '91998870950':500}
-
-    speech = "Your current zccount balance of phone no. " + zone + " is " + str(balance[zone]) + " rupees."
+    speech = "Your current plan of phone no. " + number + " is " + str(plan[number]) + "."
 
     print("Response:")
     print(speech)
