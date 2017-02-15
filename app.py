@@ -26,14 +26,15 @@ def webhook():
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
-plan = {'9155465072':"Free Roaming", '9572390164':"Free Calling", '919973212':"Free 1GB Data", '9973617212':"30p/min", '91998870950':"Free Videocalling"}
+
 def makeWebhookResult(req):
+    plan = {'9155465072':"Free Roaming", '9572390164':"Free Calling", '919973212':"Free 1GB Data", '9973617212':"30p/min", '91998870950':"Free Videocalling"}
     if req.get("result").get("action") == "current.plan.display":
         result = req.get("result")
         parameters = result.get("parameters")
         number = parameters.get("Phonenumber")
-        plan1=parameters.get("Plan")
-        plan[Phonenumber]=plan1
+        plan1 = parameters.get("Plan")
+        plan[Phonenumber] = plan1
         
     else if req.get("result").get("action") == "current.plan"
         result = req.get("result")
@@ -41,7 +42,13 @@ def makeWebhookResult(req):
         number = parameters.get("Phonenumber")
         comp= parameters.get("Company")
     else
-        return {}
+        return {
+        "speech": "ok",
+        "displayText": "ok1",
+        #"data": {},
+        # "contextOut": [],
+        "source": "apiai-onlinestore-shipping"
+    }
         
 
     speech = "Your current plan of phone no. " + number + " is " + str(plan[number]) + "."
