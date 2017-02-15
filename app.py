@@ -27,18 +27,18 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
+
+
 def makeWebhookResult(req):
-     
-    if req.get("result").get("action") != "current.plan"
+    if req.get("result").get("action") != "current.plan":
         return {}
-    
     result = req.get("result")
     parameters = result.get("parameters")
+    
     number = parameters.get("Phonenumber")
     comp= parameters.get("Company")
     plan = {'9155465072':"Free Roaming", '9572390164':"Free Calling", '919973212':"Free 1GB Data", '9973617212':"30p/min", '91998870950':"Free Videocalling"}
-    
-    speech = "Your current plan of phone no. " + number + " is changed from " + "" + " to " + str(plan[number]) + "."
+    speech = "The cost of shipping to " + number + " is " + str(plan[number]) + "."
 
     print("Response:")
     print(speech)
@@ -50,6 +50,8 @@ def makeWebhookResult(req):
         # "contextOut": [],
         "source": "apiai-onlinestore-shipping"
     }
+
+
 
 
 if __name__ == '__main__':
