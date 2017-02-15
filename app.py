@@ -32,8 +32,8 @@ def makeWebhookResult(req):
         result = req.get("result")
         parameters = result.get("parameters")
         number = parameters.get("Phonenumber")
-        plan=parameters.get("Plan")
-        plan[Phonenumber]=Plan
+        plan1=parameters.get("Plan")
+        plan[Phonenumber]=plan1
         
     else if req.get("result").get("action") == "current.plan"
         result = req.get("result")
