@@ -26,15 +26,23 @@ def webhook():
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
-
+plan = {'9155465072':"Free Roaming", '9572390164':"Free Calling", '919973212':"Free 1GB Data", '9973617212':"30p/min", '91998870950':"Free Videocalling"}
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "current.plan":
+    if req.get("result").get("action") == "current.plan.display":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        number = parameters.get("Phonenumber")
+        plan=parameters.get("Plan")
+        plan[Phonenumber]=Plan
+        
+    else if req.get("result").get("action") == "current.plan"
+        result = req.get("result")
+        parameters = result.get("parameters")
+        number = parameters.get("Phonenumber")
+        comp= parameters.get("Company")
+    else
         return {}
-    result = req.get("result")
-    parameters = result.get("parameters")
-    number = parameters.get("Phonenumber")
-    comp= parameters.get("Company")
-    plan = {'9155465072':"Free Roaming", '9572390164':"Free Calling", '919973212':"Free 1GB Data", '9973617212':"30p/min", '91998870950':"Free Videocalling"}
+        
 
     speech = "Your current plan of phone no. " + number + " is " + str(plan[number]) + "."
 
