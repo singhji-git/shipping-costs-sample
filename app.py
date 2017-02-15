@@ -28,16 +28,26 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-       
-    if req.get("result").get("action") != "current.plan"
-        return {}
-        
-    result = req.get("result")
-    parameters = result.get("parameters")
-    number = parameters.get("Phonenumber")
-    comp= parameters.get("Company")
     plan = {'9155465072':"Free Roaming", '9572390164':"Free Calling", '919973212':"Free 1GB Data", '9973617212':"30p/min", '91998870950':"Free Videocalling"}
+    number = comp = plan1 = ''
+    if req.get("result").get("action") == "change.current.plan"
+        
+        
+        result = req.get("result")
+        parameters = result.get("parameters")
+        number = parameters.get("Phonenumber")
+        plan1 = parameters.get("Plan")
+        plan[number]=plan1
     
+    
+    else if req.get("result").get("action") == "current.plan"
+        
+        
+        result = req.get("result")
+        parameters = result.get("parameters")
+        number = parameters.get("Phonenumber")
+        comp= parameters.get("Company")
+        
      
         
 
