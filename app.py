@@ -38,7 +38,7 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     speech="hey";
     plan = {'9155465072':"Free Roaming", '9572390164':"Free Calling", '919973212':"Free 1GB Data", '9973617212':"30p/min", '91998870950':"Free Videocalling"}
-    bill = {'9155465072': 100 , '9572390164': 200 , '919973212': 300 , '9973617212': 350.45 , '91998870950': 345.23 }
+    bill = {'9155465072': "100" , '9572390164': "200" , '919973212': "300" , '9973617212': "350.45" , '91998870950': "345.23" }
     if req.get("result").get("action") == "current.plan":
         number = parameters.get("Phonenumber")
         comp= parameters.get("Company")
@@ -52,6 +52,8 @@ def makeWebhookResult(req):
     elif req.get("result").get("action") == "bill.enquiry":
         number = parameters.get("Phonenumber")
         speech = "The bill for   " + number + " is " + str(bill[number]) + "."
+    else
+        speech = "hey"
         
 
     print("Response:")
