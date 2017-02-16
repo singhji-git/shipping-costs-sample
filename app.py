@@ -31,7 +31,7 @@ def webhook():
 
 def makeWebhookResult(req):
     x = req.get("result").get("action")
-    if  x != "current.plan" and  x != "current.planchange" and x! = "bill.enquiry":
+    if  x != "current.plan" and  (x != "current.planchange" and x != "bill.enquiry"):
         return {}
     
     result = req.get("result")
