@@ -30,12 +30,13 @@ def webhook():
 
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "current.plan" or req.get("result").get("action") != "current.planchange":
+    x = req.get("result").get("action")
+    if  x != "current.plan" :
         return {}
     
     result = req.get("result")
     parameters = result.get("parameters")
-    speech="";
+    speech="hey";
     plan = {'9155465072':"Free Roaming", '9572390164':"Free Calling", '919973212':"Free 1GB Data", '9973617212':"30p/min", '91998870950':"Free Videocalling"}
     
     if req.get("result").get("action") != "current.plan":
