@@ -46,8 +46,9 @@ def makeWebhookResult(req):
     elif req.get("result").get("action") == "current.planchange":
         number = parameters.get("Phonenumber")
         newplan = parameters.get("Plan")
+        prevplan = plan[number]
         plan[number] = newplan
-        speech = "The cost of shipping to " + number + " is " + str(plan[number]) + "."
+        speech = "The plan is changed from  " + prevplan + " to " + str(plan[number]) + "for the " + number + "."
         
 
     print("Response:")
