@@ -52,7 +52,7 @@ def makeWebhookResult(req):
     elif req.get("result").get("action") == "bill.enquiry":
         number = parameters.get("Phonenumber")
         speech = "The bill for   " + number + " is " + str(bill[number]) + "."
-    else
+    else :
         speech = "hey"
         
 
