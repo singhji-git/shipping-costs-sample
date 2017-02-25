@@ -62,7 +62,7 @@ def makeWebhookResult(req):
             speech = "you phone no. " + number + " is  subscribed to " + subscription1 + "."
     else :
             speech = "hey"
-            return {}
+            
         
 
     print("Response:")
